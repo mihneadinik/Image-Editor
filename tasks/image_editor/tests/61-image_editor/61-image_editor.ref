@@ -1,0 +1,68 @@
+Loaded input/b.ppm
+Selected 100 100 400 400
+Grayscale filter applied
+Selected 600 100 900 400
+Sepia filter applied
+Selected 150 150 300 300
+Grayscale filter applied
+Sepia filter applied
+Rotated 90
+Saved output/ci_4_1a.ppm
+Saved output/ci_4_1.ppm
+Sepia filter applied
+Grayscale filter applied
+Selected ALL
+Rotated 180
+Selected 600 100 900 400
+Rotated 180
+Saved output/ci_4_2.ppm
+Loaded input/b_a.ppm
+Selected 100 100 400 400
+Sepia filter applied
+Selected 600 100 900 400
+Grayscale filter applied
+Selected 150 150 300 300
+Sepia filter applied
+Grayscale filter applied
+Rotated 180
+Selected 155 155 295 295
+Rotated 180
+Sepia filter applied
+Saved output/ci_4_3a.ppm
+Saved output/ci_4_3.ppm
+Grayscale filter applied
+Sepia filter applied
+Saved output/ci_4_4.ppm
+Loaded output/ci_4_4.ppm
+Grayscale filter applied
+Sepia filter applied
+Selected 0 0 500 500
+Invalid set of coordinates
+Grayscale filter applied
+Selected 500 500 1920 1080
+Invalid set of coordinates
+Sepia filter applied
+Selected ALL
+Rotated 90
+Saved output/ci_4_5.ppm
+Failed to load input/dummy
+No image loaded
+No image loaded
+Loaded input/b.pgm
+Grayscale filter not available
+Sepia filter not available
+Selected 0 0 100 100
+Image cropped
+Sepia filter not available
+Invalid set of coordinates
+Grayscale filter not available
+Saved output/ci_4_6.pgm
+Loaded input/b_a.pgm
+Grayscale filter not available
+Sepia filter not available
+Selected 0 0 100 100
+Image cropped
+Invalid set of coordinates
+Sepia filter not available
+Grayscale filter not available
+Saved output/ci_4_7.pgm

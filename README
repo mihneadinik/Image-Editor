@@ -1,0 +1,45 @@
+//Dinica Mihnea-Gabriel 313CA
+In main I am reading the commands line by line until I find the "EXIT" command
+and for each of them I take the first word from the line so I can match them
+with the propper function. With "cor" I check if the current command matches
+any of the predefined commands or not so I can tell if it's invalid. In the
+end I check if any image is loaded so I can free its matrix.
+
+LOAD function
+*before I open a new image I check if I have any other one previously opened
+so I can close it first
+*after that I check if the image can be opened or not
+*only after this I begin reading the file line by line and if I find any
+commentaries I skip to the next line until I get to the matrix; if the file
+is binnary I read each element as an unsigned char and add it to a matrix of
+integers; if it's not binnary, I read each character and form the elements
+by the following rule: between 2 special characters (tabs, spaces and newlines)
+there will be only numbers (even though I read them as strings) and transform
+them in the end as integers.
+*if the image is color Iincrease the number of coloumns by 3 (because I didn't
+use structs)
+
+SELECT function
+*firstly I check if the parameters are given correctly then I check if they
+fit the matrix's size
+
+SAVE function
+*firstly I check if I have to convert an ascii file to binnary or the other
+way and then I write the output file line by line
+
+CROP function
+*I create a new matrix matching the selection size, add the elements from the
+big matrix to it, deallocate the old matrix and return the new one
+
+GRAYSCALE and SEPIA functions
+*I make the selection to match the closed interval (from [x, y) to [x, y - 1])
+and apply the formula for the rgb pixels
+
+ROTATE function
+*firstly I check if I have a positive or negative rotation, then if the
+selection is complete and if the image can be rotated with the given parameters
+*If I have to rotate a selection inside the matrix I apply the correct formula
+for each type of image (color or noncolor) for a 90 rotation to the right and
+we know that 180 is 2 times the first rotation and 270 is 3 times
+*If I have to rotate the full image I apply a similar idea but pay attention
+to the image dimensions (lines will become coloumns)

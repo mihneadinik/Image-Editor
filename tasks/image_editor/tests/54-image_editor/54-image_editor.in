@@ -1,0 +1,8 @@
+SEPIA
+LOAD input/dummy
+SEPIA
+LOAD input/s.pgm
+SEPIA
+LOAD input/s_a.pgm
+SEPIA
+EXIT

@@ -1,0 +1,21 @@
+SELECT -10 0 100 100
+SEPIA
+GRAYSCALE
+SAVE output/dummy
+LOAD input/b.ppm
+ROTATE 180
+SAVE output/ci_s_1.ppm
+LOAD input/b.pgm
+SELECT 0 0 100 100
+SELECT 0 0 10 abc
+SELECT 0 10
+CROP
+SAVE output/ci_s_2.ppm
+SELECT 0 0 100 99
+CROP
+SAVE output/ci_s_3.ppm
+SELECT ALL
+ROLATE 90
+ROTATE 180
+SAVE output/ci_s_4.ppm
+EXIT

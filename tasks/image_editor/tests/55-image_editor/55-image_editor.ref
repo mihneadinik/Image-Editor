@@ -1,0 +1,50 @@
+Loaded input/b.ppm
+Selected 0 0 100 100
+Rotated 90
+Selected 50 50 150 150
+Rotated 270
+Selected 0 0 1000 1000
+Image cropped
+Selected ALL
+Rotated 90
+Image cropped
+Saved output/c_1_1.ppm
+Rotated 270
+Saved output/c_1_2.ppm
+Loaded output/c_1_2.ppm
+Rotated -270
+Selected 0 0 1 1
+Rotated 90
+Saved output/c_1_3.ppm
+Selected 200 200 1000 1000
+Image cropped
+Selected 0 0 800 800
+Image cropped
+Saved output/c_1_4a.ppm
+Saved output/c_1_4.ppm
+Loaded input/b.pgm
+Selected 0 0 100 100
+Rotated 90
+Selected 50 50 150 150
+Rotated 270
+Selected 0 0 1000 1000
+Image cropped
+Selected ALL
+Rotated 90
+Image cropped
+Saved output/c_1_5.pgm
+Rotated 270
+Saved output/c_1_6.pgm
+Loaded output/c_1_6.pgm
+Rotated -270
+Selected 0 0 1 1
+Rotated 90
+Image cropped
+Rotated 90
+Saved output/c_1_7.pgm
+Invalid set of coordinates
+Image cropped
+Invalid set of coordinates
+Image cropped
+Saved output/c_1_8a.pgm
+Saved output/c_1_8.pgm

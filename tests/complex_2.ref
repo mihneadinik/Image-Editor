@@ -1,0 +1,34 @@
+Loaded input/b.ppm
+Selected 0 0 250 250
+Grayscale filter applied
+Selected 250 250 500 500
+Sepia filter applied
+Saved output/c_2_1.ppm
+Selected 125 125 375 375
+Sepia filter applied
+Grayscale filter applied
+Selected 0 0 750 750
+Image cropped
+Grayscale filter applied
+Saved output/c_2_2a.ppm
+Saved output/c_2_2.ppm
+Sepia filter applied
+Selected 400 400 600 600
+Saved output/c_2_3.ppm
+Loaded input/b_a.ppm
+Selected 0 0 250 250
+Grayscale filter applied
+Selected 250 250 500 500
+Sepia filter applied
+Saved output/c_2_4.ppm
+Selected 125 125 375 375
+Sepia filter applied
+Grayscale filter applied
+Selected 0 0 750 750
+Image cropped
+Grayscale filter applied
+Saved output/c_2_5a.ppm
+Saved output/c_2_5.ppm
+Sepia filter applied
+Selected 400 400 600 600
+Saved output/c_2_6.ppm

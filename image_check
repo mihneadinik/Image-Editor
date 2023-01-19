@@ -1,0 +1,157 @@
+#!/usr/bin/python3 -u
+import argparse
+import json
+import logging
+import os
+import subprocess
+import sys
+import tempfile
+import shutil
+
+from PIL import Image
+
+TEST_NAME_SUFFIX = "-image_editor"
+
+class TestFailedException(Exception):
+    def __init__(self, message):
+        self.message = message
+
+    def get_message(self):
+        return self.message
+
+
+def check_files_exists(file_set):
+    files_to_check = [file_set['output'], file_set['output']]
+    for file in files_to_check:
+        if not os.path.isfile(file):
+            raise TestFailedException(message='{} does not exist.'.format(file))
+
+
+def check_files_are_same_type(file_set):
+    output_path = file_set['output']
+    ref_path = file_set['ref']
+
+    try:
+        output_type = subprocess.check_output(['file', '-b', output_path])
+        ref_type = subprocess.check_output(['file', '-b', ref_path])
+        logging.debug('file {} = {}'.format(output_path, output_type))
+        logging.debug('file {} = {}'.format(ref_path, ref_type))
+
+        if output_type != ref_type:
+            raise TestFailedException(message='The type of {output_path} is not correct {actual} vs {expected}'.format(
+                output_path=output_path, actual=output_type, expected=ref_type))
+
+    except subprocess.CalledProcessError:
+        raise TestFailedException(
+            message='Failed to check types for {} or {}:'.format(output_path, ref_path))
+
+
+def check_output_is_valid(file_set):
+    image_path = file_set['output']
+    try:
+        subprocess.run(['convert', image_path, '/dev/null'], check=True)
+    except subprocess.CalledProcessError:
+        raise TestFailedException(message='{} is not a valid image.'.format(image_path))
+
+
+def do_compare_images(image1, image2, eps=2):
+    im1 = Image.open(image1)
+    im2 = Image.open(image2)
+
+    if im1.size != im2.size:
+        raise TestFailedException(message='Different sizes')
+
+    if im1.mode != im2.mode:
+        raise TestFailedException(message='Different modes')
+
+    image1_pixels = im1.load()
+    image2_pixels = im2.load()
+    no_colors = len(im1.getbands())
+    for i in range(im1.size[0]):
+        for j in range(im1.size[1]):
+            pixel1 = image1_pixels[i, j]
+            pixel2 = image2_pixels[i, j]
+
+            if no_colors == 1:
+                if pixel1 != pixel2:
+                    if abs(pixel1 - pixel2) > eps:
+                        message = 'Pixel {i} {j} is different {value1} vs {value2}'.format(i=i, j=j, value1=pixel2,
+                                                                                           value2=pixel1)
+                        raise TestFailedException(message=message)
+            else:
+                for color in range(no_colors):
+                    if pixel1[color] != pixel2[color]:
+                        if abs(pixel1[color] - pixel2[color]) > eps:
+                            message = 'Pixel {i} {j} is different {value1} vs {value2}'.format(i=i, j=j,
+                                                                                               value1=pixel2[color],
+                                                                                               value2=pixel1[color])
+                            raise TestFailedException(message=message)
+
+
+def check_image_identical(file_set):
+    if file_set['type'] == 'binary':
+        output_file = file_set['output']
+        ref_file = file_set['output']
+    else:
+        # Convert ASCII files to binary (to be PIL-compatible)
+        temp_dir = tempfile.mkdtemp()
+        output_file = os.path.join(temp_dir, 'a.ppm')
+        ref_file = os.path.join(temp_dir, 'b.ppm')
+        try:
+            subprocess.run(['convert', file_set['output'], output_file])
+        except subprocess.CalledProcessError:
+            raise TestFailedException(message='{} is invalid or convert does not exist'.format(file_set['output']))
+        try:
+            subprocess.run(['convert', file_set['ref'], ref_file])
+        except subprocess.CalledProcessError:
+            raise TestFailedException(message='{} is invalid or convert does not exist'.format(file_set['ref']))
+
+
+    prefix = '{} do not match {}: '.format(file_set['output'], file_set['ref'])
+    # Compare the files
+    try:
+        do_compare_images(output_file, ref_file)
+    except TestFailedException as e:
+        mew_message = '{prefix}: {old_message}'.format(prefix=prefix, old_message=e.get_message())
+        raise TestFailedException(message=mew_message)
+
+    # Delete temp directory
+    if 'temp_dir' in locals():
+        shutil.rmtree(temp_dir)
+
+
+def read_test_params(json_fp, test_id):
+    return json.load(json_fp)[test_id]
+
+
+def check_test(test_params):
+    # Check if a test passes. Raises TestFailedException with a suitable message
+    # if the test should fail.
+    for file_set in test_params['files']:
+        check_files_exists(file_set)
+        check_files_are_same_type(file_set)
+        check_output_is_valid(file_set)
+        check_image_identical(file_set)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Answers if the files generated by a test are ok.')
+    parser.add_argument('json_config_file', type=argparse.FileType('rb'))
+    parser.add_argument('test_id', type=str)
+    args = parser.parse_args()
+
+    try:
+        test_params = read_test_params(args.json_config_file, args.test_id)
+    except Exception as e:
+        logging.exception('Failed to read test params from JSON')
+        sys.exit(1)
+
+    try:
+        check_test(test_params)
+    except TestFailedException as e:
+        print(e.get_message(), file=sys.stderr)
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,69 @@
+Loaded input/b.pgm
+Selected 0 0 1000 1000
+Invalid set of coordinates
+Image cropped
+Selected 0 0 900 900
+Invalid set of coordinates
+Image cropped
+Selected 0 0 800 800
+Image cropped
+Selected 0 0 800 800
+Selected 0 0 400 400
+Invalid set of coordinates
+Rotated 90
+Selected 400 0 800 400
+Invalid set of coordinates
+Rotated 180
+Selected 0 400 400 800
+Saved output/ci_2_1a.pgm
+Saved output/ci_2_1.pgm
+Rotated 270
+Failed to load input/dummy
+No image loaded
+Loaded output/ci_2_1a.pgm
+Selected 0 400 400 800
+Rotated 270
+Selected 400 400 800 800
+Rotated -90
+Selected 300 300 500 500
+Rotated -180
+Selected ALL
+Rotated 90
+Selected 0 0 800 800
+Saved output/ci_2_2a.pgm
+Saved output/ci_2_2.pgm
+Loaded input/b.ppm
+Selected 0 0 1000 1000
+Invalid set of coordinates
+Image cropped
+Selected 0 0 900 900
+Invalid set of coordinates
+Image cropped
+Selected 0 0 800 800
+Image cropped
+Selected 0 0 800 800
+Selected 0 0 400 400
+Invalid set of coordinates
+Rotated 90
+Selected 400 0 800 400
+Invalid set of coordinates
+Rotated 180
+Selected 0 400 400 800
+Saved output/ci_2_3a.ppm
+Saved output/ci_2_3.ppm
+Rotated 270
+Failed to load input/dummy
+No image loaded
+Loaded output/ci_2_3a.ppm
+Selected 0 400 400 800
+Rotated 270
+Selected 400 400 800 800
+Rotated -90
+Selected 300 300 500 500
+Rotated -270
+Selected ALL
+Rotated 90
+Selected 0 0 800 800
+Rotated 180
+Saved output/ci_2_4a.ppm
+Saved output/ci_2_4.ppm

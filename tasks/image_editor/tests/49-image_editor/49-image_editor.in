@@ -1,0 +1,8 @@
+GRAYSCALE
+LOAD input/dummy
+GRAYSCALE
+LOAD input/s.pgm
+GRAYSCALE
+LOAD input/s_a.pgm
+GRAYSCALE
+EXIT

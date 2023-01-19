@@ -1,0 +1,54 @@
+Loaded input/b.ppm
+Invalid set of coordinates
+Rotated 90
+Invalid set of coordinates
+Rotated -90
+Saved output/c_3_1.ppm
+Grayscale filter applied
+Selected 1000 500 1600 1100
+Sepia filter applied
+Saved output/c_3_2.ppm
+Selected 1100 600 1500 1000
+Grayscale filter applied
+Saved output/c_3_3a.ppm
+Saved output/c_3_3.ppm
+Loaded input/b_a.ppm
+Invalid set of coordinates
+Rotated 90
+Invalid set of coordinates
+Rotated -90
+Saved output/c_3_4.ppm
+Grayscale filter applied
+Selected 1000 500 1600 1100
+Sepia filter applied
+Saved output/c_3_5.ppm
+Selected 1100 600 1500 1000
+Grayscale filter applied
+Saved output/c_3_6a.ppm
+Saved output/c_3_6.ppm
+Loaded input/b.pgm
+Loaded input/b.pgm
+Selected 0 0 1000 1000
+Rotated 90
+Selected 100 100 1100 1100
+Rotated 90
+Selected ALL
+Rotated -270
+Saved output/c_3_7.pgm
+Rotated 270
+Saved output/c_3_8.pgm
+Loaded output/c_3_8.pgm
+Saved output/c_3_8a.pgm
+Loaded input/b_a.pgm
+Loaded input/b_a.pgm
+Selected 0 0 1000 1000
+Rotated 90
+Selected 100 100 1100 1100
+Rotated 90
+Selected ALL
+Rotated -270
+Saved output/c_3_9.pgm
+Rotated 270
+Saved output/c_3_10.pgm
+Loaded output/c_3_10.pgm
+Saved output/c_3_10a.pgm
